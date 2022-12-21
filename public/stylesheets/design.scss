@@ -1,0 +1,291 @@
+/* 1 COLORS*/
+
+:root {
+  --black: #070724;
+  --grey-dark: #38384f;
+  --grey-light: #838391;
+  --mercury: #419ebb;
+  --venus: #eda249;
+  --earth: #6f2ed6;
+  --mars: #d14c32;
+  --jupiter: #d83a34;
+  --saturn: #cd5120;
+  --uranus: #1ec2a4;
+  --neptune: #2d68f0;
+  --mobile-mercury: #def4fc;
+  --mobile-venus: #f7cc7f;
+  --mobile-earth: #545bfe;
+  --mobile-mars: #ff6a45;
+  --mobile-jupiter: #ecad7a;
+  --mobile-saturn: #fccb6b;
+  --mobile-uranus: #65f0d5;
+  --mobile-neptune: #497efa;
+}
+
+@mixin planet-color($name) {
+  .me-#{$name}:hover {
+    border-color: var(--#{$name});
+  }
+  .me-#{$name} .me-mobile h3::before {
+    background-color: var(--mobile-#{$name});
+  }
+  .pm-#{$name} {
+    .b-on {
+      background-color: var(--#{$name});
+    }
+    .pmmb-active {
+      border-color: var(--#{$name});
+    }
+  }
+}
+
+@each $name in mercury, venus, earth, mars, jupiter, saturn, uranus, neptune {
+  @include planet-color($name);
+}
+
+body {
+  background-color: var(--black);
+  background-image: url("/assets/background-stars.svg");
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 2 TYPOGRAPHY*/
+
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+@font-face {
+  font-family: "Antonio";
+  src: url("../fonts/Antonio-Medium.ttf");
+  font-weight: $medium;
+}
+
+@font-face {
+  font-family: "Spartan";
+  src: url("../fonts/LeagueSpartan-Bold.ttf");
+  font-weight: $bold;
+}
+
+@font-face {
+  font-family: "Spartan";
+  src: url("../fonts/LeagueSpartan-Regular.ttf");
+  font-weight: $regular;
+}
+
+h1 {
+  font-family: "Antonio";
+  font-size: 80px;
+  font-weight: $medium;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h2 {
+  font-family: "Antonio";
+  font-size: 40px;
+  font-weight: $medium;
+  line-height: 52px;
+  letter-spacing: -1.5px;
+}
+
+h3 {
+  font-family: "Spartan";
+  font-size: 12px;
+  font-weight: $bold;
+  line-height: 25px;
+  letter-spacing: 2.6px;
+}
+
+h4 {
+  font-family: "Spartan";
+  font-size: 11px;
+  font-weight: $bold;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+body,
+p {
+  font-family: "Spartan";
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 25px;
+  letter-spacing: normal;
+}
+
+@media screen and (max-width: 1100px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: 0.9px;
+  }
+
+  .planet h3 {
+    font-size: 9px;
+    letter-spacing: 1.9px;
+  }
+
+  .planet h4 {
+    font-size: 8px;
+    line-height: 16px;
+    letter-spacing: 0.7px;
+  }
+
+  body,
+  p {
+    font-size: 11px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  h2 {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+}
+
+/* 3 BUTTONS*/
+
+.button {
+  border: solid 1px var(--grey-dark);
+  background-color: var(--black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  h2 {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  span {
+    opacity: 0.5;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+.b-off:hover {
+  background-color: var(--grey-dark);
+}
+
+/* 4 UTILITY*/
+
+.m0 {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.m0125 {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}
+
+.m025 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.m05 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.m075 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.m1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.m15 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.m2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mr025 {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.mr05 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.mr075 {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.mr1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.mr15 {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.mr2 {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.container {
+  min-width: calc(1350px);
+  max-width: calc(1350px);
+}
+
+@media screen and (max-width: 1680px) {
+  .container {
+    min-width: calc(100vw - 300px);
+    max-width: calc(100vw - 300px);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    min-width: calc(100vw - 160px);
+    max-width: calc(100vw - 160px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    min-width: calc(100vw - 79px);
+    max-width: calc(100vw - 79px);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    min-width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+  }
+}

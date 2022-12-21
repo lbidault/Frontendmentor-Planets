@@ -1,0 +1,141 @@
+@import "./design.scss";
+
+.nav {
+  min-width: 100%;
+}
+
+.navbar {
+  border-bottom: solid 1px var(--grey-dark);
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.n-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  font-family: "Antonio";
+  font-size: 28px;
+  font-weight: $medium;
+  line-height: auto;
+  letter-spacing: -1.5px;
+}
+
+.nh-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.inactive {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.menu {
+  width: 50%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.m-entry {
+  border-top: solid 4px;
+  border-color: transparent;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h4 {
+    opacity: 0.75;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .n-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+    min-height: auto;
+    align-items: center;
+  }
+
+  .m-entry {
+    border-top: none;
+    border-bottom: solid 4px;
+    border-color: transparent;
+    min-height: 4rem;
+    transform: translateY(1px);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .menu {
+    position: absolute;
+    top: 65px;
+    min-height: calc(100vh - 65px);
+    background-color: var(--black);
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .nav-menu ~ .planet {
+    display: none;
+  }
+  .title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .n-header {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.me-mobile {
+  border-bottom: solid 1px var(--grey-dark);
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    font-size: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  h3::before {
+    content: "";
+    margin-right: 1em;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    transform: translateY(-2px);
+  }
+}
+
+.mem-last {
+  border-bottom: none;
+}
