@@ -10,14 +10,17 @@ function App() {
   const [device, setDevice] = useState("desktop");
 
   useEffect(() => {
+    preloadAssets();
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("resize", manageDevice);
     manageDevice();
-    preloadAssets();
     window.scrollTo(0, 0);
     return () => {
       window.removeEventListener("resize", manageDevice);
     };
-  }, []);
+  });
 
   function manageDevice() {
     const screenWidth = window.innerWidth;
@@ -68,17 +71,21 @@ function App() {
     <div className="app">
       <Navigation device={device} />
       <Routes>
-        <Route exact path="/" element={<Navigate to="/earth" />} />
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+        {[...Array(data.length).keys()].map((i) => {
           const planet = data[i];
-          return (
+          let pathArray = [`/${planet.name.toLocaleLowerCase()}`];
+          if (planet.name == "Earth") {
+            pathArray.unshift("/");
+          }
+          return pathArray.map((path) => (
             <Route
-              path={`/${planet.name.toLocaleLowerCase()}`}
+              path={path}
               element={<Planet planet={planet} device={device} />}
-              key={i}
+              key={path}
             />
-          );
+          ));
         })}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
