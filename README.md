@@ -6,7 +6,7 @@ Le site est réalisé à l'aide des images et du design fournis avec l'énoncé 
 Challenge Frontend Mentor de difficulté 3.
 
 - Énoncé: https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f
-- Résultat: https://planets-frontendmentor.netlify.app
+- Résultat: https://lbidault-planets-frontendmentor.netlify.app
 
 ## Développé avec
 
